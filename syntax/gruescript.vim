@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language: Gruescript (.gru)
 " Maintainer: David Yates
-" Latest Revision: 2023-05-04
+" Latest Revision: 2021-10-07
 
 if exists("b:current_syntax")
   finish
@@ -24,11 +24,11 @@ syn region grueInterp start='{' end='}' keepend contained contains=grueDeref mat
 
 " Strings
 syn region grueString
-      \ start='\v((js)|(say)|(display)|(prompt)|(desc)|:|(game)|(author)|(status) )@<=' skip='\\' end='\v\n' keepend
+      \ start='\v((js|say|display|prompt|desc|:|game|author|status) )@<=' skip='\\' end='\v\n' keepend
       \ contains=grueInterp,grueComment
 
 syn region grueStringAfter
-      \ start='\v((prop \w+ )|(locali[sz]e \w+ )|(colou?r \w+ )|(thing \w+ )|(room) \w+ )@<=' skip='\\' end='\v\n' keepend
+      \ start='\v((write|prop|locali[sz]e|colou?r|thing|room) [A-Za-z0-9\.\$_]+ )@<=' skip='\\' end='\v\n' keepend
       \ contains=grueInterp,grueComment
 
 " Numbers
